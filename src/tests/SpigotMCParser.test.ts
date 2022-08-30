@@ -1,9 +1,9 @@
-import {SpigotMCParser} from "@/parser/SpigotMCParser";
+import { SpigotMCParser } from '@/parser/SpigotMCParser'
 
 describe('SpigotMCParser', () => {
   it('check (Dynmap)', async () => {
     const parser = new SpigotMCParser({
-      resourceId: 274
+      resourceId: 274,
     })
     const result = await parser.parse()
 

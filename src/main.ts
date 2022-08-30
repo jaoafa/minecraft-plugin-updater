@@ -8,7 +8,7 @@ function getOneLineInput(question: string): Promise<string> {
   return new Promise<string>((resolve) => {
     const readlineInterface = readline.createInterface({
       input: process.stdin,
-      output: process.stdout
+      output: process.stdout,
     })
     readlineInterface.question(question, (answer) => {
       resolve(answer)

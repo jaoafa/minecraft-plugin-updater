@@ -6,7 +6,7 @@ export interface VersionItem {
 }
 
 export interface BaseParserResult {
-  latest: VersionItem,
+  latest: VersionItem
   versions?: VersionItem[]
 }
 

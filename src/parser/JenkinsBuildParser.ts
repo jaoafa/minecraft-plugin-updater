@@ -4,7 +4,7 @@ import {
   BaseParser,
   BaseParserOptions,
   BaseParserResult,
-  ParseError
+  ParseError,
 } from './BaseParser'
 
 export interface JenkinsBuildOptions extends BaseParserOptions {
@@ -31,7 +31,7 @@ export class JenkinsBuildParser extends BaseParser<
     const response = await axios.get<JenkinsResponse>(
       `https://${domain}/job/${jobName}/lastSuccessfulBuild/api/json`,
       {
-        validateStatus: () => true
+        validateStatus: () => true,
       }
     )
     if (response.status !== 200) {
@@ -45,8 +45,8 @@ export class JenkinsBuildParser extends BaseParser<
       latest: {
         id: response.data.number,
         version: response.data.number.toString(),
-        downloadUrl
-      }
+        downloadUrl,
+      },
     }
   }
 }

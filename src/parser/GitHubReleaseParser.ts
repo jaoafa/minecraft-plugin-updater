@@ -4,7 +4,7 @@ import {
   BaseParser,
   BaseParserOptions,
   BaseParserResult,
-  ParseError
+  ParseError,
 } from './BaseParser'
 
 export interface GitHubReleaseOptions extends BaseParserOptions {
@@ -32,7 +32,7 @@ export class GitHubReleaseParser extends BaseParser<
     const response = await axios.get<GitHubRelease[]>(
       `https://api.github.com/repos/${repository}/releases`,
       {
-        validateStatus: () => true
+        validateStatus: () => true,
       }
     )
     if (response.status !== 200) {
@@ -42,11 +42,14 @@ export class GitHubReleaseParser extends BaseParser<
       id: item.id,
       name: item.name,
       version: item.tag_name,
-      downloadUrl: item.assets.length > 0 ? item.assets[0].browser_download_url : undefined
+      downloadUrl:
+        item.assets.length > 0
+          ? item.assets[0].browser_download_url
+          : undefined,
     }))
     return {
       latest: items[0],
-      versions: items
+      versions: items,
     }
   }
 }

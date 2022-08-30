@@ -26,7 +26,7 @@ export class SpigotMCParser extends BaseParser<
     const response = await axios.get<SpigotMCResponse[]>(
       `https://api.spiget.org/v2/resources/${resourceId}/versions?sort=-id`,
       {
-        validateStatus: () => true
+        validateStatus: () => true,
       }
     )
     if (response.status !== 200) {
@@ -35,11 +35,11 @@ export class SpigotMCParser extends BaseParser<
     const items: SpigotMCVersionItem[] = response.data.map((item) => ({
       id: item.id,
       version: item.name,
-      downloadUrl: `https://api.spiget.org/v2/resources/${resourceId}/versions/${item.id}/download`
+      downloadUrl: `https://api.spiget.org/v2/resources/${resourceId}/versions/${item.id}/download`,
     }))
     return {
       latest: items[0],
-      versions: items
+      versions: items,
     }
   }
 }

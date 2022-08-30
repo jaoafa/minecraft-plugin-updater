@@ -3,7 +3,7 @@ import { GitHubReleaseParser } from '@/parser/GitHubReleaseParser'
 describe('GitHubReleaseParser', () => {
   it('check (jaoafa/MyMaid4)', async () => {
     const parser = new GitHubReleaseParser({
-      repository: 'jaoafa/MyMaid4'
+      repository: 'jaoafa/MyMaid4',
     })
     const result = await parser.parse()
 
