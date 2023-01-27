@@ -18,7 +18,7 @@ describe('JenkinsBuildParser', () => {
 
     // downloadUrl は必須で、Jenkins のダウンロード URL 正規表現にマッチすること
     expect(result.latest.downloadUrl).toMatch(
-      /^https:\/\/ci\.citizensnpcs\.co\/job\/Citizens2\/lastSuccessfulBuild\/artifact\/target\/Citizens-.+\.jar$/
+      /^https:\/\/ci\.citizensnpcs\.co\/job\/Citizens2\/lastSuccessfulBuild\/artifact\/dist\/target\/Citizens-.+\.jar$/
     )
   })
 })
