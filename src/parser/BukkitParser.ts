@@ -29,7 +29,7 @@ export class BukkitParser extends BaseParser<BukkitOptions, BukkitResult> {
       }
     )
     if (response.status !== 200) {
-      throw new ParseError(`Failed to get latest version of ${projectId}`)
+      throw new ParseError(`Failed to get latest version of ${projectId}: ${response.status}`)
     }
     const $ = cheerio.load(response.data)
     const trs: BukkitPageTableItem[] = []
